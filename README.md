@@ -1,5 +1,40 @@
 # sandbox-nuxt
 
+## 学び
+
+```pug
+.root
+  input(type="text" :value="$props.value" @input="onInput")
+</template>
+```
+
+```javascript
+import Vue from "vue";
+import { Component, Prop, Model, Emit } from "vue-property-decorator";
+
+@Component({
+  props: {
+    value: String
+  },
+  model: {
+    prop: 'value',
+    event: 'input'
+  }
+})
+class Input extends Vue {
+  @Emit('input')
+  onInput(event) {
+    return event.target.value;
+  }
+}
+
+export default Input;
+```
+
+```scss
+//
+```
+
 > My remarkable Nuxt.js project
 
 ## Build Setup
